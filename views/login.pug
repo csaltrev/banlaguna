@@ -5,23 +5,7 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         link(rel="stylesheet", href="/css/login.css")
-        title Banco de La Laguna
+        title Login | BanLaguna
     body
         include includes/header.pug
-
-        section.section
-            .container#login-details
-                label.label(for="accounts-select") Username:
-                .select.login-data
-                    select#accounts-select
-                        option(value="Value1") Value1
-                        option(value="Value2") Value2
-                        option(value="Value3") Value3
-                        option(value="Value4") Value4
-                        option(value="Value5") Value5
-                        option(value="Value6") Value6
-                label.label(for="password") Password:
-                .field.login-data#password
-                    p.control
-                        input.input(type='password', placeholder='Password')
-                button.button.is-primary Login
+        include includes/login-form.pug
