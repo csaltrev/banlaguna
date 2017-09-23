@@ -2,6 +2,8 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
+const pump = require('pump');
+const babel = require('gulp-babel');
 
 gulp.task('sass', () => {
     return gulp.src('./sass/**/*.sass')
@@ -10,10 +12,17 @@ gulp.task('sass', () => {
         .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('js', () => {
-    return gulp.src('./js/user.js')
-    .pipe(uglify())
-    .pipe(gulp.dest('public/js'));
+gulp.task('js', cb => {
+    pump([
+            gulp.src('./js/*.js'),
+            babel({
+                presets: ['env']
+            }),
+            uglify(),
+            gulp.dest('./public/js')
+        ],
+        cb
+    );
 });
 
 gulp.task('default', ['sass', 'js'], () => {
