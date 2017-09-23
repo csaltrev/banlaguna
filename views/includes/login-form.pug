@@ -1,5 +1,5 @@
 section.section
-    form(action="POST").container#login-form
+    form(action="", method="POST").container#login-form
         .field
             label.label Username
             .control
@@ -17,4 +17,4 @@ section.section
                 input.input(type='password', placeholder='Password')
         .field
             .control.has-text-right
-                button.button.is-primary Login
+                button.button.is-success(type="submit") Login
