@@ -4,7 +4,7 @@
   "description": "Banco de la Laguna",
   "main": "index.js",
   "scripts": {
-    "start": "gulp && nodemon index.js"
+    "start": "nodemon index.js"
   },
   "author": "Carlos Saltijeral",
   "license": "MIT",
