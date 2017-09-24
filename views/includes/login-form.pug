@@ -1,0 +1,20 @@
+section.section
+    form(action="", method="POST").container#login-form
+        .field
+            label.label Username
+            .control
+                .select
+                    select
+                        option(value="Value1") Value1
+                        option(value="Value2") Value2
+                        option(value="Value3") Value3
+                        option(value="Value4") Value4
+                        option(value="Value5") Value5
+                        option(value="Value6") Value6
+        .field
+            label.label Password
+            .control
+                input.input(type='password', placeholder='Password')
+        .field
+            .control.has-text-right
+                button.button.is-success(type="submit") Login
