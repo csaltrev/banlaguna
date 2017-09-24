@@ -10,7 +10,7 @@ app.get('/', async (req, res, next) => {
     try {
         const content = {
         };
-        res.render('user');
+        res.render('admin');
     } catch (e) {
         console.log(e);
         next(e);
