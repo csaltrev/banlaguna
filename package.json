@@ -4,7 +4,8 @@
   "description": "Banco de la Laguna",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "test": "heroku local web"
   },
   "author": "Carlos Saltijeral",
   "license": "MIT",
