@@ -1,0 +1,26 @@
+.modal#accounts-modal
+    .modal-background
+    .modal-card
+        header.modal-card-head
+            p.modal-card-title.has-text-left Cuentas
+            button.delete#close-btn(aria-label='close')
+        section.modal-card-body
+            table.table
+                thead
+                    tr
+                        th Seleccionar
+                        th Username
+                        th Password
+                tfoot
+                    tr
+                        th Seleccionar
+                        th Username
+                        th Password
+                tbody
+                    tr#rema
+                        td: input(type="checkbox", name="delete")
+                        td Grupo REMA
+                        td albertovaldes
+            .field.is-grouped#form-buttons-container
+                button.button.is-danger#delete-btn Eliminar
+                button.button.is-success#create-btn Crear

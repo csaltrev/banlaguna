@@ -1,0 +1,19 @@
+.modal#new-account-modal
+    .modal-background
+    .modal-card
+        header.modal-card-head
+            p.modal-card-title.has-text-left Crear Cuenta
+            button.delete#close-btn(aria-label='close')
+        section.modal-card-body
+            form(action="", method="POST")
+                .field.has-text-left
+                    label.label Username
+                    .control
+                        input.input(type="text", placeholder="Username")
+                .field.has-text-left
+                    label.label Password
+                    .control
+                        input.input(type="password", placeholder="Password")
+                .field.is-grouped#form-buttons-container
+                    button.button#cancel-btn(type="reset") Cancelar
+                    button.button.is-success(type="submit") Aceptar

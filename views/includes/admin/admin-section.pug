@@ -1,0 +1,30 @@
+section.section#transactions-section
+    .container.has-text-centered
+        include modals/bulk-modal.pug
+        include modals/single-modal.pug
+        include modals/accounts-modal.pug
+        include modals/new-account-modal.pug
+        include modals/user-modal.pug
+        #menu
+            #transfer-options
+                p Transferencia
+                .is-grouped
+                    button.button.is-primary#bulk-btn Masiva
+                    button.button.is-primary#single-btn Unitaria    
+            .control
+                button.button.is-info#accounts-btn Cuentas   
+        table.table
+            thead
+                tr
+                    th Cuenta
+                    th Balance 
+                        i.fa.fa-inr(aria-hidden="true")
+            tfoot
+                tr
+                    th Cuenta
+                    th Balance 
+                        i.fa.fa-inr(aria-hidden="true")
+            tbody
+                tr
+                    td: a#user(href="#") Grupo REMA
+                    td 7500                    

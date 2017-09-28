@@ -3,7 +3,7 @@
         const transferBtn = document.querySelector('#transfer-btn');
         const cancelBtn = document.querySelector('#cancel-btn');
         const closeBtn = document.querySelector('#close-btn');
-        const transferModal = document.querySelector('#transfer-modal');
+        const transferModal = document.querySelector('#modal');
 
         transferBtn.addEventListener('click', e => {
             transferModal.classList.add('is-active');

@@ -8,7 +8,7 @@
 @import '../node_modules/bulma/sass/layout/_all'
 /*! end bulma.io v0.5.2 */
 
-#user-header
+#admin-header
     padding: 0 0 1.5rem 0
     background-color: gold
 
@@ -18,15 +18,29 @@
 #transactions-section
     padding: 1rem 1.5rem;
 
-    #modal
+    #menu
+        display: flex
+        flex-flow: column
+        align-items: center
+
+        #bulk-btn
+            margin-right: 0.5rem
+
+        #transfer-options
+            display: flex
+            flex-flow: column nowrap
+            align-items: center
+            margin-bottom: 1rem
+
+    #bulk-modal, #single-modal, #new-account-modal
         .modal-card
             width: 15rem
 
-            #form-buttons-container
-                justify-content: flex-end
+    #form-buttons-container
+        justify-content: flex-end
 
-                #cancel-btn
-                    margin-right: 0.5rem
+    #cancel-btn, #delete-btn
+        margin-right: 0.5rem
 
     table
         margin: 1rem auto

@@ -10,6 +10,28 @@ app.get('/', async (req, res, next) => {
     try {
         const content = {
         };
+        res.render('login');
+    } catch (e) {
+        console.log(e);
+        next(e);
+    }
+});
+
+app.get('/user', async (req, res, next) => {
+    try {
+        const content = {
+        };
+        res.render('user');
+    } catch (e) {
+        console.log(e);
+        next(e);
+    }
+});
+
+app.get('/admin', async (req, res, next) => {
+    try {
+        const content = {
+        };
         res.render('admin');
     } catch (e) {
         console.log(e);

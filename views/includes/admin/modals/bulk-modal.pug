@@ -1,0 +1,40 @@
+.modal#bulk-modal
+    .modal-background
+    .modal-card
+        header.modal-card-head
+            p.modal-card-title.has-text-left Transf. Masiva
+            button.delete#close-btn(aria-label='close')
+        section.modal-card-body
+            form(action="", method="POST")
+                .field.has-text-left
+                    label.label A
+                    .control
+                        .select.is-multiple
+                            select(multiple size="4")
+                                option(value="Value1") Value1
+                                option(value="Value2") Value2
+                                option(value="Value3") Value3
+                                option(value="Value4") Value4
+                                option(value="Value5") Value5
+                                option(value="Value6") Value6
+                .field.has-text-left
+                    label.label Cantidad
+                    .control
+                        input.input(type="number", placeholder="Cantidad")
+                    .field
+                        .control
+                            label.radio
+                                input(type="radio", name="unit", value="rema")
+                                span.icon.is-small.is-right
+                                    i.fa.fa-inr(aria-hidden="true")
+                            label.radio 
+                                input(type="radio", name="unit", value="percent")
+                                span.icon.is-small.is-right
+                                    i.fa.fa-percent(aria-hidden="true")
+                .field.has-text-left
+                    label.label Concepto
+                    .control
+                        textarea.textarea(placeholder="Concepto (máx. 50 caracteres)", rows="3", maxlength="50")
+                .field.is-grouped#form-buttons-container
+                    button.button#cancel-btn(type="reset") Cancelar
+                    button.button.is-success(type="submit") Aceptar
