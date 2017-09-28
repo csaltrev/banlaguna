@@ -4,7 +4,6 @@
   "description": "Banco de la Laguna",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "test": "heroku local web"
   },
   "author": "Carlos Saltijeral",
