@@ -10,7 +10,7 @@
   "author": "Carlos Saltijeral",
   "license": "MIT",
   "engines": {
-    "node": "8.1.0"
+    "node": "8.5.0"
   },
   "dependencies": {
     "bulma": "^0.5.2",

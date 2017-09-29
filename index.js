@@ -3,13 +3,13 @@ const app = express();
 
 app.use(express.static('public'));
 
+app.set('port', (process.env.PORT || 3000));
+
 app.set('views', './views');
 app.set('view engine', 'pug');
 
 app.get('/', async (req, res, next) => {
     try {
-        const content = {
-        };
         res.render('login');
     } catch (e) {
         console.log(e);
@@ -19,8 +19,6 @@ app.get('/', async (req, res, next) => {
 
 app.get('/user', async (req, res, next) => {
     try {
-        const content = {
-        };
         res.render('user');
     } catch (e) {
         console.log(e);
@@ -30,8 +28,6 @@ app.get('/user', async (req, res, next) => {
 
 app.get('/admin', async (req, res, next) => {
     try {
-        const content = {
-        };
         res.render('admin');
     } catch (e) {
         console.log(e);
@@ -39,4 +35,6 @@ app.get('/admin', async (req, res, next) => {
     }
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(app.get('port'), () => {
+    console.log(`Running on port ${app.get('port')}...`);
+});
