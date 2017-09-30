@@ -1,9 +1,7 @@
-const path = require('path');
 const express = require('express');
 const app = express();
 
-process.env.PWD = process.cwd();
-app.use(express.static(path.join(process.env.PWD, 'public')));
+app.use(express.static('public'));
 
 app.set('port', (process.env.PORT || 3000));
 
