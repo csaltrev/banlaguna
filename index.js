@@ -29,9 +29,10 @@ app.get('/user', async (req, res, next) => {
 
 app.get('/admin', async (req, res, next) => {
     try {
-        await db.query('INSERT INTO public.accounts (username, password) VALUES (carlos, root)');
-        const {rows} = await db.query('SELECT * FROM public.accounts');
-        res.render('admin', rows);
+        await db.query("INSERT INTO public.accounts (username, password) VALUES('carlos', 'root');");
+        const {rows} = await db.query('SELECT * FROM public.accounts;');
+        console.log(rows[0]);
+        res.render('admin', rows[0]);
     } catch (e) {
         console.log(e);
         next(e);
