@@ -1,4 +1,4 @@
-const db = require('db');
+const db = require(`${__dirname}/db/index.js`);
 const express = require('express');
 const app = express();
 
@@ -29,7 +29,9 @@ app.get('/user', async (req, res, next) => {
 
 app.get('/admin', async (req, res, next) => {
     try {
-        res.render('admin');
+        await db.query('INSERT INTO public.accounts (username, password) VALUES (carlos, root)');
+        const {rows} = await db.query('SELECT * FROM public.accounts');
+        res.render('admin', rows);
     } catch (e) {
         console.log(e);
         next(e);
