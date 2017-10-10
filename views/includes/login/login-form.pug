@@ -4,17 +4,13 @@ section.section
             label.label Username
             .control
                 .select
-                    select
-                        option(value="Value1") Value1
-                        option(value="Value2") Value2
-                        option(value="Value3") Value3
-                        option(value="Value4") Value4
-                        option(value="Value5") Value5
-                        option(value="Value6") Value6
+                    select(name="username")
+                        each user in users
+                            option(value=user.username)= user.username
         .field
             label.label Password
             .control
-                input.input(type='password', placeholder='Password')
+                input.input(type='password', placeholder='Password', name="password")
         .field
             .control.has-text-right
                 button.button.is-success(type="submit") Login
