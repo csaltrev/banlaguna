@@ -13,23 +13,21 @@ section.section#transactions-section
                             label.label A
                             .control
                                 .select
-                                    select
-                                        option(value="Value1") Value1
-                                        option(value="Value2") Value2
-                                        option(value="Value3") Value3
-                                        option(value="Value4") Value4
-                                        option(value="Value5") Value5
-                                        option(value="Value6") Value6
+                                    select(name="receiver")
+                                        - var reqUser = user
+                                        each user in users
+                                            unless user.username === 'admin' || reqUser.id === user.id
+                                                option(value=user.id)= user.username
                         .field.has-text-left
                             label.label Cantidad
                             .control.has-icons-right
-                                input.input(type="number", placeholder="Cantidad")
+                                input.input(name="quantity", type="number", placeholder="Cantidad", min="1", max="9999999", step="any", required)
                                 span.icon.is-small.is-right
                                     i.fa.fa-inr(aria-hidden="true")
                         .field.has-text-left
                             label.label Concepto
                             .control
-                                textarea.textarea(placeholder="Concepto (máx. 50 caracteres)", rows="3", maxlength="50")
+                                textarea.textarea(name="concept", placeholder="(8 =< Caracteres <= 25)", rows="2", minlength="8", maxlength="25", required)
                         .field.is-grouped#form-buttons-container
                             button.button#cancel-btn(type="reset") Cancelar
                             button.button.is-success(type="submit") Aceptar        

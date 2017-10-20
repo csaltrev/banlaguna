@@ -1,19 +1,19 @@
 {
-    document.addEventListener('DOMContentLoaded', e => {
+    document.addEventListener('DOMContentLoaded', () => {
         const transferBtn = document.querySelector('#transfer-btn');
         const cancelBtn = document.querySelector('#cancel-btn');
         const closeBtn = document.querySelector('#close-btn');
         const transferModal = document.querySelector('#modal');
 
-        transferBtn.addEventListener('click', e => {
+        transferBtn.addEventListener('click', () => {
             transferModal.classList.add('is-active');
         });
 
-        cancelBtn.addEventListener('click', e => {
+        cancelBtn.addEventListener('click', () => {
             transferModal.classList.remove('is-active');
         });
 
-        closeBtn.addEventListener('click', e => {
+        closeBtn.addEventListener('click', () => {
             transferModal.classList.remove('is-active');
         });
     });

@@ -14,9 +14,10 @@ table.table
             th Fecha
             th: i.fa.fa-inr(aria-hidden="true")
     tbody
-        tr
-            th 1
-            td Grupo REMA
-            td Este es un concepto relativamente largo.
-            td 22/09/2017
-            td 1500
+        each formattedTransaction in formattedTransactions
+            tr
+                th= formattedTransaction.id
+                td= formattedTransaction.receiver
+                td= formattedTransaction.concept
+                td= formattedTransaction.timestamp
+                td= formattedTransaction.quantity
