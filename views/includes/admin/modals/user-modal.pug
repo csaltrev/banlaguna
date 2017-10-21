@@ -5,4 +5,19 @@
             p.modal-card-title.has-text-left User
             button.delete#close-btn(aria-label='close')
         section.modal-card-body
-            include ../../user/user-table.pug
+            table.table
+                thead
+                    tr
+                        th ID
+                        th Destinatario
+                        th Concepto
+                        th Fecha
+                        th: i.fa.fa-inr(aria-hidden="true")
+                tfoot
+                    tr
+                        th ID
+                        th Destinatario
+                        th Concepto
+                        th Fecha
+                        th: i.fa.fa-inr(aria-hidden="true")
+                tbody

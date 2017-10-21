@@ -1,16 +1,16 @@
 section.section
     form(method="POST").container#login-form
         .field
-            label.label Username
+            label.label Usuario
             .control
                 .select
                     select(name="username")
                         each user in users
                             option(value=user.id)= user.username
         .field
-            label.label Password
+            label.label Contraseña
             .control
-                input.input(type='password', placeholder='Password', name="password")
+                input.input(type='password', placeholder='Contraseña', name="password")
         .field
             .control.has-text-right
                 button.button.is-success(type="submit") Entrar

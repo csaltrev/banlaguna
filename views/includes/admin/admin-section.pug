@@ -12,7 +12,7 @@ section.section#transactions-section
                     button.button.is-primary#bulk-btn Masiva
                     button.button.is-primary#single-btn Unitaria    
             .control
-                button.button.is-link#accounts-btn Cuentas   
+                button.button.is-info#accounts-btn Cuentas   
         table.table
             thead
                 tr
@@ -25,6 +25,8 @@ section.section#transactions-section
                     th Balance 
                         i.fa.fa-inr(aria-hidden="true")
             tbody
-                tr
-                    td: a#user(href="#") Grupo REMA
-                    td 7500                    
+                each user in users
+                    - var userId = 'user-' + user.id
+                    tr
+                        td: a(href="#", id=userId)= user.username
+                        td= user.balance                    
