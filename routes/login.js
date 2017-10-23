@@ -23,17 +23,23 @@ router.get('/', async(req, res, next) => {
 
 router.post('/', async(req, res, next) => {
     try {
+        const userId = req.body.username;
         const password = req.body.password;
+        
         const query = 'SELECT * FROM public.accounts WHERE password = $1;';
         const {
             rows
         } = await db.query(query, [password]);
 
-        req.session.username = rows[0].username;
-        req.session.userId = rows[0].id;
-
-        const path = rows[0].username === 'admin' ? '/admin' : `/user/${rows[0].id}`;
-        res.redirect(path);
+        if (userId === rows[0].id.toString()) {
+            req.session.username = rows[0].username;
+            req.session.userId = rows[0].id;
+    
+            const path = rows[0].username === 'admin' ? '/admin' : `/user/${rows[0].id}`;
+            res.redirect(path);
+        } else {
+            res.redirect('/');
+        }
     } catch (e) {
         res.redirect('back');
     }

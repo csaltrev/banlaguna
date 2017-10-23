@@ -66,6 +66,17 @@
             });
         };
 
+        const handleDeleteUsers = () => {
+            const usersToDelete = [];
+            const userCheckboxes = document.querySelectorAll('[name="delete"]');
+            for (let i = 0; i < userCheckboxes.length; i++) {
+                if (userCheckboxes[i].checked) {
+                    usersToDelete.push(userCheckboxes[i].value);
+                }
+            }
+            console.log(usersToDelete);
+        };
+
         transactionsSection.addEventListener('click', e => {
             if (e.target.id.startsWith('user-')) {
                 const userId = e.target.id.substr(5);
@@ -95,6 +106,10 @@
                             handleOpenModal(newAccountModal);
                         }
                     });
+                    e.stopPropagation();
+                    break;
+                case 'delete-btn':
+                    handleDeleteUsers();
                     e.stopPropagation();
                     break;
                 default:

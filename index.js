@@ -22,7 +22,7 @@ app.use(session({
   secret: 'admin afedz',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true } // Change for production
+  cookie: { secure: false } // Change for production
 }));
 
 app.use('/', login);
