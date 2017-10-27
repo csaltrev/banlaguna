@@ -8,20 +8,19 @@
             table.table
                 thead
                     tr
-                        th Seleccionar
+                        th ID
                         th Usuario
                         th Contraseña
                 tfoot
                     tr
-                        th Seleccionar
+                        th ID
                         th Usuario
                         th Contraseña
                 tbody
                     each user in users
                         tr
-                            td: input(type="checkbox", name="delete", value=user.id)
+                            td= user.id
                             td= user.username
                             td= user.password
-            .field.is-grouped#form-buttons-container
-                button.button.is-danger#delete-btn Eliminar
+            .field.has-text-right
                 button.button#create-btn Crear

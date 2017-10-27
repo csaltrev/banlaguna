@@ -1,19 +1,15 @@
-.modal#new-account-modal
+.modal#reset-modal
     .modal-background
     .modal-card
         header.modal-card-head
-            p.modal-card-title.has-text-left Crear Cuenta
+            p.modal-card-title.has-text-left Resetear
             button.delete#close-btn(aria-label='close')
         section.modal-card-body
-            form(action="/admin/account", method="POST")
-                .field.has-text-left
-                    label.label Usuario
-                    .control
-                        input.input(name="username", type="text", placeholder="Usuario")
+            form(action="/admin/reset", method="POST")
                 .field.has-text-left
                     label.label Contraseña
                     .control
                         input.input(name="password", type="password", placeholder="Contraseña")
                 .field.is-grouped#form-buttons-container
                     button.button#cancel-btn(type="reset") Cancelar
-                    button.button.is-success(type="submit") Aceptar
+                    button.button.is-danger(type="submit") Resetear

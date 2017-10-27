@@ -13,17 +13,21 @@ router.get('/:id', async(req, res, next) => {
             const accountsRes = await db.query(accountsQuery);
             const users = accountsRes.rows;
             const user = users.find(u => u.id.toString() === req.params.id);
-            user.balance = parseFloat(user.balance).toFixed(2);
+            user.balance = parseFloat(user.balance).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
-            const transactionsQuery = 'SELECT * FROM public.transactions WHERE sender = $1;';
-            const transactionsRes = await db.query(transactionsQuery, [user.id]);
+            const transactionsQuery = 'SELECT * FROM public.transactions WHERE sender = $1 OR receiver = $2;';
+            const transactionsRes = await db.query(transactionsQuery, [user.id, user.id]);
             const rawTransactions = transactionsRes.rows;
             
             const formattedTransactions = rawTransactions;
             formattedTransactions.forEach(transaction => {
                 transaction.receiver = users.find(u => u.id === transaction.receiver).username;
                 transaction.timestamp = dateTime.format(transaction.timestamp);
-                transaction.quantity = parseFloat(transaction.quantity).toFixed(2);
+                transaction.quantity = parseFloat(transaction.quantity).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+                if (transaction.sender.toString() === user.id.toString()) {
+                    transaction.quantity = `-${transaction.quantity}`;
+                }
+                transaction.sender = users.find(u => u.id === transaction.sender).username;
             });
 
             const data = {

@@ -2,7 +2,7 @@ header.section#user-header
     .container.has-text-centered
         img(src="http://via.placeholder.com/180x80", alt="Banco de La Laguna")
         h1.title= user.username
-        if user.balance < 0
+        if user.balance.startsWith('-')
             h2.subtitle.has-text-danger Balance: #{user.balance} 
                 i.fa.fa-inr(aria-hidden="true")
         else

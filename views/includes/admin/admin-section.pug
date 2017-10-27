@@ -5,6 +5,7 @@ section.section#transactions-section
         include modals/accounts-modal.pug
         include modals/new-account-modal.pug
         include modals/user-modal.pug
+        include modals/reset-modal.pug
         #menu
             #transfer-options
                 p Transferencia
@@ -29,4 +30,6 @@ section.section#transactions-section
                     - var userId = 'user-' + user.id
                     tr
                         td: a(href="#", id=userId)= user.username
-                        td= user.balance                    
+                        td= user.balance 
+        .field.has-text-right
+            button.button.is-warning#reset-btn Resetear                   

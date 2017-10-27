@@ -2,6 +2,7 @@ table.table
     thead
         tr
             th ID
+            th Remitente
             th Destinatario
             th Concepto
             th Fecha
@@ -9,6 +10,7 @@ table.table
     tfoot
         tr
             th ID
+            th Remitente
             th Destinatario
             th Concepto
             th Fecha
@@ -17,6 +19,7 @@ table.table
         each formattedTransaction in formattedTransactions
             tr
                 th= formattedTransaction.id
+                td= formattedTransaction.sender
                 td= formattedTransaction.receiver
                 td= formattedTransaction.concept
                 td= formattedTransaction.timestamp
