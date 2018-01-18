@@ -201,7 +201,7 @@ const isValid = (quantity, concept) => {
     if (concept.length >= 8 &&
         concept.length <= 25) isConceptValid = true;
 
-    if (/^\$?\d+(\d{3})*(\.\d*)?$/.test(quantity) &&
+    if (/^-?[0-9]\d*(\.\d+)?$/.test(quantity) &&
         parseFloat(quantity) >= -9999999 &&
         parseFloat(quantity) <= 9999999)
         isQuantityValid = true;
