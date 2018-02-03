@@ -7,13 +7,16 @@ section.section#transactions-section
         include modals/user-modal.pug
         include modals/reset-modal.pug
         #menu
-            #transfer-options
+            #options-container
                 p Transferencia
                 .is-grouped
                     button.button.is-primary#bulk-btn Masiva
-                    button.button.is-primary#single-btn Unitaria    
-            .control
-                button.button.is-info#accounts-btn Cuentas   
+                    button.button.is-primary#single-btn Unitaria
+            #options-container
+                p Cuentas            
+                .is-grouped
+                    button.button.is-info#accounts-btn Detalles
+                    button.button.is-dark#export-btn Exportar   
         table.table
             thead
                 tr
