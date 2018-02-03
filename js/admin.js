@@ -88,9 +88,9 @@
                     const tableData = document.querySelectorAll('tbody td');
                     for (let i = 0; i < tableData.length - 2; i++) {
                         const row = [];
-                        row.push(tableData[i]);
-                        row.push(tableData[i + 1]);
-                        row.push(tableData[i + 2]);
+                        row.push(tableData[i].textContent);
+                        row.push(tableData[i + 1].textContent);
+                        row.push(tableData[i + 2].textContent);
                         accounts.push(row);                     
                     }
                     let csvContent = 'data:text/csv;charset=utf-8,';
