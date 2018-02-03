@@ -86,7 +86,7 @@
                 case 'export-btn':
                     const accounts = [];
                     const tableData = document.querySelectorAll('tbody td');
-                    for (let i = 0; i < tableData.length - 2; i++) {
+                    for (let i = 0; i < tableData.length - 2; i += 3) {
                         const row = [];
                         row.push(tableData[i].textContent);
                         row.push(tableData[i + 1].textContent);
