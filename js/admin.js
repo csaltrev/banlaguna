@@ -86,11 +86,10 @@
                 case 'export-btn':
                     const accounts = [];
                     const tableData = document.querySelectorAll('#acc-bal-table tbody td');
-                    for (let i = 0; i < tableData.length - 2; i += 3) {
+                    for (let i = 0; i < tableData.length - 1; i += 2) {
                         const row = [];
                         row.push(tableData[i].textContent);
                         row.push(tableData[i + 1].textContent);
-                        row.push(tableData[i + 2].textContent);
                         accounts.push(row);                     
                     }
                     let csvContent = 'data:text/csv;charset=utf-8,';
