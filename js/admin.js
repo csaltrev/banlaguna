@@ -83,6 +83,38 @@
                     });
                     e.stopPropagation();
                     break;
+                case 'export-btn':
+                    const accounts = [];
+                    const tableData = document.querySelectorAll('tbody td');
+                    for (let i = 0; i < tableData.length - 2; i++) {
+                        const row = [];
+                        row.push(tableData[i]);
+                        row.push(tableData[i + 1]);
+                        row.push(tableData[i + 2]);
+                        accounts.push(row);                     
+                    }
+                    let csvContent = 'data:text/csv;charset=utf-8,';
+                    accounts.forEach(account => {
+                        let row = account.join(',');
+                        csvContent += row + '\r\n';
+                    });
+                    const encodedUri = encodeURI(csvContent);
+                    const link = document.createElement('a');
+                    link.setAttribute('href', encodedUri);
+
+                    let today = new Date();
+                    const dd = today.getDate();
+                    const mm = today.getMonth() + 1;
+                    const yyyy = today.getFullYear();
+                    if(dd < 10) dd = '0' + dd;
+                    if(mm < 10) mm = '0' + mm;
+                    today = mm + '/' + dd + '/' + yyyy;
+                    link.setAttribute('download', `Cuentas-${today}.csv`);
+
+                    document.body.appendChild(link);
+                    link.click();
+                    e.stopPropagation();
+                    break;
                 case 'reset-btn':
                     handleOpenModal(resetModal);
                     e.stopPropagation();
