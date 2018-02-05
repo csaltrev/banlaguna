@@ -89,7 +89,7 @@
                     for (let i = 0; i < tableData.length - 1; i += 2) {
                         const row = [];
                         row.push(tableData[i].textContent);
-                        row.push(tableData[i + 1].textContent);
+                        row.push(tableData[i + 1].textContent.replace(/\,/g, ''));
                         accounts.push(row);                     
                     }
                     let csvContent = 'data:text/csv;charset=utf-8,';
