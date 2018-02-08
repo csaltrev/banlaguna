@@ -90,8 +90,6 @@ router.post('/password', async (req, res, next) => {
     } catch (e) {
         res.send(e.stack);
     }
-
-    res.send(userId);
 });
 
 router.post('/reset', async (req, res, next) => {
