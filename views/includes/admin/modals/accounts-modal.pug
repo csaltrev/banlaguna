@@ -18,10 +18,11 @@
                         th Contraseña
                 tbody
                     each user in users
+                        - let id = user.id;
                         tr
                             td= user.id
                             td= user.username
-                            td= user.password
-                                button.button.is-small(id="change-pass-#{user.id}") Cambiar
+                            td= user.password 
+                                button.button.is-small(id="change-pass-#{id}") Cambiar
             .field.has-text-right
                 button.button#create-btn Crear
