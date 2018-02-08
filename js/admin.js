@@ -84,9 +84,9 @@
                             handleOpenModal(newAccountModal);
                         } else if (e.target.id === 'change-pass') {
                             const userId = e.target.parentNode.parentNode.querySelectorAll('td')[0].textContent;
-                            passwordModalId.value = userId;
                             passwordModalTitle.textContent = e.target.parentNode.querySelectorAll('td')[1].textContent;
                             handleOpenModal(passwordModal);
+                            passwordModalId.value = userId;
                         }
                     });
                     e.stopPropagation();
