@@ -83,7 +83,7 @@
                         if (e.target.id === 'create-btn') {
                             handleOpenModal(newAccountModal);
                         } else if (e.target.id.startsWith('change-pass-')) {
-                            const userId = e.target.id.substr(12);
+                            const userId = e.target.parentNode.querySelectorAll('td')[0].textContent;
                             passwordModalId.value = userId;
                             passwordModalTitle.textContent = e.target.parentNode.querySelectorAll('td')[1].textContent;
                             handleOpenModal(passwordModal);
