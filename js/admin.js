@@ -9,6 +9,9 @@
         const resetModal = document.querySelector('#reset-modal');
         const userModalTbody = document.querySelector('#user-modal table tbody');
         const userModalTitle = document.querySelector('#user-modal p');
+        const passwordModal = document.querySelector('#password-modal');
+        const passwordModalTitle = document.querySelector('#password-modal p');
+        const passwordModalId = document.querySelector('#password-modal #user-id');
 
         const populateTransactionsTable = transactions => {
             transactions.forEach(transaction => {
@@ -79,6 +82,11 @@
                     accountsModal.addEventListener('click', e => {
                         if (e.target.id === 'create-btn') {
                             handleOpenModal(newAccountModal);
+                        } else if (e.target.id.startsWith('change-pass-')) {
+                            const userId = e.target.id.substr(12);
+                            passwordModalId.value = userId;
+                            passwordModalTitle.textContent = e.target.parentNode.querySelectorAll('td')[1].textContent;
+                            handleOpenModal(passwordModal);
                         }
                     });
                     e.stopPropagation();

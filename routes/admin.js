@@ -78,6 +78,13 @@ router.post('/account', async (req, res, next) => {
     }
 });
 
+router.post('/password', async (req, res, next) => {
+    const userId = req.body.id;
+    const password = req.body.password;
+
+    res.send(userId);
+});
+
 router.post('/reset', async (req, res, next) => {
     const password = req.body.password;
     try {
