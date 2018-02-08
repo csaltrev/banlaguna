@@ -82,6 +82,15 @@ router.post('/password', async (req, res, next) => {
     const userId = req.body.id;
     const password = req.body.password;
 
+    try {
+        const passwordQuery = 'UPDATE public.accounts SET password = $1 WHERE id = $2;';
+        await db.query(addUserQuery, [password, userId]);
+
+        res.redirect('/');
+    } catch (e) {
+        res.send(e.stack);
+    }
+
     res.send(userId);
 });
 
