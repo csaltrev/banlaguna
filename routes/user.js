@@ -48,12 +48,11 @@ router.get('/:id', async(req, res, next) => {
 router.post('/:id', async(req, res, next) => {
     const quantity = req.body.quantity;
     const concept = req.body.concept;
+    const senderId = req.params.id;
+    const receiverId = req.body.receiver;
 
-    if (isValid(quantity, concept)) {
+    if (isValid(quantity, concept, senderId, receiverId)) {
         try {
-            const senderId = req.params.id;
-            const receiverId = req.body.receiver;
-
             const senderQuery = 'SELECT * FROM public.accounts WHERE id = $1;';
             const senderRes = await db.query(senderQuery, [senderId]);
             const sender = senderRes.rows[0];
@@ -78,14 +77,20 @@ router.post('/:id', async(req, res, next) => {
         } catch (e) {
             res.send(e.stack);
         }
+    } else if (parseInt(senderId) == parseInt(receiverId)) {
+        res.send('(Me dio flojera estilizar esta página.) Felicidades, has sido acreedor a una multa (ahorita pienso de cuánto). Que tengas un bonito día.');
     } else {
         res.redirect(`/user/${senderId}`);
     }
 });
 
-const isValid = (quantity, concept) => {
+const isValid = (quantity, concept, senderId, receiverId) => {
     let isConceptValid = false;
     let isQuantityValid = false;
+    let isEntityValid = false;
+
+    if (parseInt(senderId) != parseInt(receiverId))
+        isEntityValid = true;
 
     if (concept.length >= 8 &&
         concept.length <= 25) isConceptValid = true;
@@ -95,5 +100,5 @@ const isValid = (quantity, concept) => {
         parseFloat(quantity) <= 9999999)
         isQuantityValid = true;
 
-    return isQuantityValid && isConceptValid;
+    return isQuantityValid && isConceptValid && isEntityValid;
 };
